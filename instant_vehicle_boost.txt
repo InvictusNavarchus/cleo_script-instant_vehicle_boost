@@ -1,0 +1,86 @@
+{$CLEO .cs}
+{$USE CLEO+}
+Alloc($PLAYER_CHAR, 2)
+Alloc($PLAYER_ACTOR, 3)
+
+script_name 'MADE BY'
+script_name 'CHEESEBURGER'
+script_name 'Modified by'
+script_name 'Invictus'
+ 
+:SETUP
+wait 0
+if Player.IsPlaying($PLAYER_CHAR)
+then
+    if Char.IsInAnyCar($PLAYER_ACTOR)
+    then
+        1@ = Char.StoreCarIsInNoSave($PLAYER_ACTOR)
+        goto @CHECK_BOOST_KEYS
+    end
+end
+goto @SETUP
+
+:CHECK_BOOST_KEYS
+wait 0
+if Pad.IsKeyPressed(KeyCode.G)
+then
+    Car.SetForwardSpeed(1@, 500.0)
+    Text.PrintHelpString("GOD SPEED Boost Activated")
+    goto @SETUP
+else
+end
+
+if Pad.IsKeyPressed(KeyCode.P)
+then
+    Car.SetForwardSpeed(1@, 200.0)
+    Text.PrintHelpString("SUPER SPEED Boost Activated")
+    goto @STOP_ON_COLLISION
+end
+
+if Pad.IsKeyPressed(KeyCode.LeftButton)
+then
+    Car.SetForwardSpeed(1@, 80.0)
+    Text.PrintHelpString("Instant Speed Boost Activated (80)")
+    goto @STOP_ON_COLLISION
+end
+
+if Pad.IsKeyPressed(KeyCode.RightButton)
+then
+    Car.SetForwardSpeed(1@, 30.0)
+    Text.PrintHelpString("Instant Slow Down Activated")
+    goto @SETUP
+end
+
+:STOP
+if Pad.IsKeyPressed(KeyCode.Shift)
+then
+    Car.SetForwardSpeed(1@, 0.0)
+    Text.PrintHelpString("Instant Stop Activated")
+    goto @SETUP
+end
+
+goto @SETUP
+
+:STOP_ON_COLLISION
+wait 0
+float collision_intensity = Car.GetCollisionIntensity(1@)
+while collision_intensity <= 0.1
+    Text.PrintString("Waiting for collision...", 10)
+    if Pad.IsKeyPressed(KeyCode.Shift)
+    then
+        goto @STOP
+    end
+    goto @FORCE_STOP
+end
+
+:FORCE_STOP
+while not Car.IsStopped(1@)
+    wait 10
+    Text.PrintString("Collision Detected. Stopping Car...", 50)
+    Car.SetForwardSpeed(1@, 0.0)
+    if Pad.IsKeyPressed(KeyCode.Shift)
+    then
+        goto @STOP
+    end
+end
+goto @SETUP

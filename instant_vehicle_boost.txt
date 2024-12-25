@@ -26,7 +26,7 @@ if Pad.IsKeyPressed(KeyCode.G)
 then
     Car.SetForwardSpeed(1@, 500.0)
     Text.PrintHelpString("GOD SPEED Boost Activated")
-    goto @SETUP
+    goto @STOP_ON_COLLISION
 else
 end
 

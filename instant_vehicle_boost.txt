@@ -66,6 +66,7 @@ wait 0
 float collision_intensity = Car.GetCollisionIntensity(1@)
 while collision_intensity <= 0.0
     wait 0
+    collision_intensity = Car.GetCollisionIntensity(1@)
     Text.PrintString("Waiting for collision...", 10)
     if Pad.IsKeyPressed(KeyCode.Shift)
     then

@@ -12,9 +12,9 @@ script_name 'Invictus'
 wait 0
 if Player.IsPlaying($PLAYER_CHAR)
 then
-    if Char.IsInAnyCar($PLAYER_ACTOR)
+    if Char.IsSittingInAnyCar($PLAYER_ACTOR)
     then
-        1@ = Char.StoreCarIsInNoSave($PLAYER_ACTOR)
+        1@ = Char.GetCarIsUsing($PLAYER_ACTOR)
         goto @CHECK_BOOST_KEYS
     end
 end

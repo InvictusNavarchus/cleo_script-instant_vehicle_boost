@@ -75,5 +75,5 @@ while collision_intensity <= 0.0
     end
 end
 Text.PrintString("Collision Detected. Stopping Car...", 50)
-Car.SetForwardSpeed(1@, 0.0)
+Car.SetForwardSpeed(1@, 10.0)
 goto @SETUP

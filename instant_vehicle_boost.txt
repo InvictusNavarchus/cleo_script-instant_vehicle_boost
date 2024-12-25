@@ -40,7 +40,7 @@ end
 
 if Pad.IsKeyPressed(KeyCode.LeftButton)
 then
-    Car.SetForwardSpeed(1@, 80.0)
+    Car.SetForwardSpeed(1@, 60.0)
     Text.PrintHelpString("Instant Speed Boost Activated (80)")
     goto @SETUP
 end

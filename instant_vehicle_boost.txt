@@ -3,10 +3,11 @@
 Alloc($PLAYER_CHAR, 2)
 Alloc($PLAYER_ACTOR, 3)
 
-script_name 'MADE BY'
-script_name 'CHEESEBURGER'
-script_name 'Modified by'
-script_name 'Invictus'
+// == Credit ==
+// Originally made by CheeseBurger
+// Modified by Invictus
+// Original Script: https://cheeseburgersmod.blogspot.com/2021/05/instant-vehicle-boost-for-mobile.html
+script_name 'Instant Speed'
  
 :SETUP
 wait 0

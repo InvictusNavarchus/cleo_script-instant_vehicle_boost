@@ -70,7 +70,6 @@ while collision_intensity <= 0.1
     then
         goto @STOP
     end
-    goto @FORCE_STOP
 end
 
 :FORCE_STOP

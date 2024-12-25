@@ -42,7 +42,7 @@ if Pad.IsKeyPressed(KeyCode.LeftButton)
 then
     Car.SetForwardSpeed(1@, 80.0)
     Text.PrintHelpString("Instant Speed Boost Activated (80)")
-    goto @STOP_ON_COLLISION
+    goto @SETUP
 end
 
 if Pad.IsKeyPressed(KeyCode.RightButton)

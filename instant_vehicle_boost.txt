@@ -71,15 +71,6 @@ while collision_intensity <= 0.1
         goto @STOP
     end
 end
-
-:FORCE_STOP
-while not Car.IsStopped(1@)
-    wait 10
-    Text.PrintString("Collision Detected. Stopping Car...", 50)
-    Car.SetForwardSpeed(1@, 0.0)
-    if Pad.IsKeyPressed(KeyCode.Shift)
-    then
-        goto @STOP
-    end
-end
+Text.PrintString("Collision Detected. Stopping Car...", 50)
+Car.SetForwardSpeed(1@, 0.0)
 goto @SETUP

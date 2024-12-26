@@ -33,6 +33,17 @@ function handle_collision_check(car_handle: Car)
             apply_speed_boost(car_handle, 0.0, "Instant Stop Activated")
             goto @main
         end
+        if Pad.IsKeyPressed(KeyCode.G)
+        then
+            apply_speed_boost(car_handle, 500.0, "GOD SPEED Boost Activated")
+            goto @collision_check
+        end
+        
+        if Pad.IsKeyPressed(KeyCode.P)
+        then
+            apply_speed_boost(car_handle, 200.0, "SUPER SPEED Boost Activated")
+            goto @collision_check
+        end
     end
     Text.PrintString("Collision Detected. Stopping Car...", 50)
     apply_speed_boost(car_handle, 10.0, "")
